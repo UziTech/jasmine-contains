@@ -93,47 +93,46 @@ beforeEach(function () {
 							return found;
 						});
 
-						if (!pass) {
-							return false;
-						}
+						if (pass) {
 
-						// iterate through matches to find a one to one element equality
-						var counts = Array(matches.length).fill(0);
-						while (pass) {
+							// iterate through matches to find a one to one element equality
+							var counts = Array(matches.length).fill(0);
+							while (pass) {
 
-							// check for all numbers >= 0 and < expected.length
-							var equalities = {};
-							var sum = counts.reduce(function (sum, c, i) {
-								if (matches[i].length > 0) {
-									var match = matches[i][c];
-									if (!equalities[match]) {
-										equalities[match] = true;
-										sum += match + 1;
+								// check for all numbers >= 0 and < expected.length
+								var equalities = {};
+								var sum = counts.reduce(function (sum, c, i) {
+									if (matches[i].length > 0) {
+										var match = matches[i][c];
+										if (!equalities[match]) {
+											equalities[match] = true;
+											sum += match + 1;
+										}
+									}
+									return sum;
+								}, 0);
+
+								var matchesSummed = (expected.length * (expected.length + 1)) / 2;
+								if (sum === matchesSummed) {
+									// found a one to one element equality
+									break;
+								}
+
+								// increment counts
+								var hasAnotherSolution = false;
+								for (var i = 0; i < counts.length; i++) {
+									counts[i]++;
+									if (counts[i] < matches[i].length) {
+										hasAnotherSolution = true;
+										break;
+									} else {
+										counts[i] = 0;
 									}
 								}
-								return sum;
-							}, 0);
 
-							var matchesSummed = (expected.length * (expected.length + 1)) / 2;
-							if (sum === matchesSummed) {
-								// found a one to one element equality
-								break;
+								// fail if all solutions are exahusted
+								pass = hasAnotherSolution;
 							}
-
-							// increment counts
-							var hasAnotherSolution = false;
-							for (var i = 0; i < counts.length; i++) {
-								counts[i]++;
-								if (counts[i] < matches[i].length) {
-									hasAnotherSolution = true;
-									break;
-								} else {
-									counts[i] = 0;
-								}
-							}
-
-							// fail if all solutions are exahusted
-							pass = hasAnotherSolution;
 						}
 					}
 					result.pass = pass;

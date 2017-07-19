@@ -1,0 +1,13 @@
+{
+  "name": "jasmine-contains",
+  "main": "./lib/jasmine-contains",
+  "version": "0.1.0",
+  "description": "Jasmine matchers to check the contents of an array",
+  "keywords": [
+    "jasmine",
+    "matchers",
+    "contains"
+  ],
+  "repository": "https://github.com/UziTech/jasmine-contains",
+  "license": "MIT"
+}

@@ -1,7 +1,5 @@
 "use strict";
 
-require("jasmine-should-fail");
-
 require("../src/jasmine-contains");
 
 function mirrorWorldEquals(a, b) {
@@ -28,6 +26,12 @@ describe("jasmine-contains", function () {
 				expect(arr1).toContainOnly(arr2);
 			});
 
+			it("when given a similar array out of order", function () {
+				var arr1 = [1, 2, 3];
+				var arr2 = [2, 3, 1];
+				expect(arr1).toContainOnly(arr2);
+			});
+
 			it("when using an asymmetric match", function () {
 				var arr1 = [
 					[],
@@ -49,11 +53,17 @@ describe("jasmine-contains", function () {
 
 		});
 
-		zdescribe("should fail", function () {
+		describe("should fail", function () {
 
 			it("when given a number", function () {
 				var arr = [1];
-				expect(arr).toContainOnly(1);
+				expect(arr).not.toContainOnly(1);
+			});
+
+			it("when given an array with mismatched number of items", function () {
+				var arr1 = [1, 2, 2];
+				var arr2 = [1, 1, 2];
+				expect(arr1).not.toContainOnly(arr2);
 			});
 
 			it("when using an asymmetric match", function () {
@@ -67,12 +77,12 @@ describe("jasmine-contains", function () {
 					jasmine.any(Function),
 					jasmine.objectContaining({ a: true })
 				];
-				expect(arr1).toContainOnly(arr2);
+				expect(arr1).not.toContainOnly(arr2);
 			});
 
 			it("using a custom equality", function () {
 				jasmine.addCustomEqualityTester(mirrorWorldEquals);
-				expect(["abcd"]).toContainOnly(["abcd"]);
+				expect(["abcd"]).not.toContainOnly(["abcd"]);
 			});
 
 		});
@@ -121,17 +131,17 @@ describe("jasmine-contains", function () {
 
 		});
 
-		zdescribe("should fail", function () {
+		describe("should fail", function () {
 
 			it("when given a number", function () {
 				var arr = [1];
-				expect(arr).toContainAll(1);
+				expect(arr).not.toContainAll(1);
 			});
 
 			it("when given a larger array", function () {
 				var arr1 = [1, 2, 3];
 				var arr2 = [1, 2, 3, 4];
-				expect(arr1).toContainAll(arr2);
+				expect(arr1).not.toContainAll(arr2);
 			});
 
 			it("when using an asymmetric match", function () {
@@ -145,12 +155,12 @@ describe("jasmine-contains", function () {
 					jasmine.any(Function),
 					jasmine.objectContaining({ a: true })
 				];
-				expect(arr1).toContainAll(arr2);
+				expect(arr1).not.toContainAll(arr2);
 			});
 
 			it("using a custom equality", function () {
 				jasmine.addCustomEqualityTester(mirrorWorldEquals);
-				expect(["abcd"]).toContainAll(["abcd"]);
+				expect(["abcd"]).not.toContainAll(["abcd"]);
 			});
 
 		});

@@ -28,6 +28,18 @@ or
 
 Matches if expected array contains all and only the given array objects in any order.
 
+### Example
+
+```js
+expect([1, "2", { "3": 4 }]).toContainOnly([jasmine.any(Number), "2", jasmine.objectContaining({ "3": 4 })]);
+```
+
 ## toContainAll(array)
 
 Matches if expected array contains all the given array objects in any order.
+
+### Example
+
+```js
+expect([5, 4, 3, 2, 1]).toContainAll([1, 2, 3]);
+```

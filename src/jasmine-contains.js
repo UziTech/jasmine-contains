@@ -10,7 +10,8 @@ beforeEach(function () {
 					var result = {};
 					var pass = (actual.length === expected.length);
 					if (pass) {
-						var matches = Array(actual.length).fill(0).map(function () { return []; });
+						// fill matches with empty arrays
+						var matches = Array(actual.length).fill().map(function () { return []; });
 
 						// check that all expected elements equal at least one actual element
 						pass = expected.every(function (expectedElement, expectedIndex) {
@@ -79,7 +80,7 @@ beforeEach(function () {
 					var pass = (actual.length >= expected.length);
 					if (pass) {
 
-						var matches = Array(actual.length).fill(0).map(function () { return []; });
+						var matches = Array(actual.length).fill().map(function () { return []; });
 
 						// check that all expected elements equal at least one actual element
 						pass = expected.every(function (expectedElement, expectedIndex) {
@@ -106,14 +107,14 @@ beforeEach(function () {
 										var match = matches[i][c];
 										if (!equalities[match]) {
 											equalities[match] = true;
+											// add +1 to make sure 0 isn't missing
 											sum += match + 1;
 										}
 									}
 									return sum;
 								}, 0);
-
-								var matchesSummed = (expected.length * (expected.length + 1)) / 2;
-								if (sum === matchesSummed) {
+								var matchedSum = (expected.length * (expected.length + 1)) / 2;
+								if (sum === matchedSum) {
 									// found a one to one element equality
 									break;
 								}

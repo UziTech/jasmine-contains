@@ -31,7 +31,7 @@ Matches if expected array contains all and only the given array objects in any o
 ### Example
 
 ```js
-expect([1, "2", { "3": 4 }]).toContainOnly([jasmine.any(Number), "2", jasmine.objectContaining({ "3": 4 })]);
+expect([1, "2", { "3": 4 }, 5]).toContainOnly([jasmine.any(Number), jasmine.objectContaining({ "3": 4 }), 1, "2"]);
 ```
 
 ## toContainAll(array)

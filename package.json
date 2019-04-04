@@ -19,7 +19,7 @@
     "release:major": "test-tag-publish major"
   },
   "devDependencies": {
-    "jasmine": "^3.3.1",
+    "jasmine": "^3.4.0",
     "test-tag-publish": "^2.0.0"
   },
   "peerDependencies": {

@@ -1,7 +1,7 @@
 {
   "name": "jasmine-contains",
   "main": "./src/jasmine-contains.js",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Tony Brix",
   "description": "Jasmine matchers to check the contents of an array",
   "keywords": [

@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/UziTech/jasmine-contains.png)](https://travis-ci.org/UziTech/jasmine-contains)
-[![Windows Build Status](https://ci.appveyor.com/api/projects/status/jrjc3y3n0tftjji7?svg=true)](https://ci.appveyor.com/project/UziTech/jasmine-contains)
+[![Build Status](https://travis-ci.org/UziTech/jasmine-contains.svg?branch=master)](https://travis-ci.org/UziTech/jasmine-contains)
+[![Windows Build Status](https://ci.appveyor.com/api/projects/status/jrjc3y3n0tftjji7/branch/master?svg=true)](https://ci.appveyor.com/project/UziTech/jasmine-contains)
 
 # jasmine-contains
 

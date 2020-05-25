@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.org/UziTech/jasmine-contains.svg?branch=master)](https://travis-ci.org/UziTech/jasmine-contains)
-[![Windows Build Status](https://ci.appveyor.com/api/projects/status/jrjc3y3n0tftjji7/branch/master?svg=true)](https://ci.appveyor.com/project/UziTech/jasmine-contains)
+[![Actions Status](https://github.com/UziTech/jasmine-contains/workflows/CI/badge.svg)](https://github.com/UziTech/jasmine-contains/actions)
 
 # jasmine-contains
 

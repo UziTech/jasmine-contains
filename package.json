@@ -13,8 +13,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jasmine ./spec/*-spec.js",
-    "lint": "eslint .",
-    "semantic-release": "semantic-release"
+    "lint": "eslint ."
   },
   "devDependencies": {
     "@semantic-release/changelog": "^5.0.1",

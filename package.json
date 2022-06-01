@@ -27,6 +27,6 @@
     "semantic-release": "^19.0.2"
   },
   "peerDependencies": {
-    "jasmine": "4.x"
+    "jasmine": ">=2 <5"
   }
 }

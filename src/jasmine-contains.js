@@ -4,6 +4,9 @@ beforeEach(function () {
 
 	jasmine.addMatchers({
 		toContainOnly: function (util, customEqualityTesters) {
+			var prettyPrint = util.pp || jasmine.pp;
+			var undef;
+			var equalityTesters = customEqualityTesters && !customEqualityTesters.deprecated ? customEqualityTesters : undef;
 			// The actual array contains all and only expected array elements in any order
 			return {
 				compare: function (actual, expected) {
@@ -17,7 +20,7 @@ beforeEach(function () {
 						pass = expected.every(function (expectedElement, expectedIndex) {
 							var found = false;
 							actual.forEach(function (actualElement, actualIndex) {
-								if (util.equals(expectedElement, actualElement, customEqualityTesters)) {
+								if (util.equals(expectedElement, actualElement, equalityTesters)) {
 									found = true;
 									matches[actualIndex].push(expectedIndex);
 								}
@@ -66,13 +69,16 @@ beforeEach(function () {
 					}
 					result.pass = pass;
 					var toOrNotTo = (result.pass ? "not to" : "to");
-					result.message = "Expected " + jasmine.pp(actual) + " " + toOrNotTo + " only contain all of " + jasmine.pp(expected);
+					result.message = "Expected " + prettyPrint(actual) + " " + toOrNotTo + " only contain all of " + prettyPrint(expected);
 					return result;
 				}
 			};
 		},
 
 		toContainAll: function (util, customEqualityTesters) {
+			var prettyPrint = util.pp || jasmine.pp;
+			var undef;
+			var equalityTesters = customEqualityTesters && !customEqualityTesters.deprecated ? customEqualityTesters : undef;
 			// The actual array contains all expected array elements in any order and can contain other elements
 			return {
 				compare: function (actual, expected) {
@@ -86,7 +92,7 @@ beforeEach(function () {
 						pass = expected.every(function (expectedElement, expectedIndex) {
 							var found = false;
 							actual.forEach(function (actualElement, actualIndex) {
-								if (util.equals(expectedElement, actualElement, customEqualityTesters)) {
+								if (util.equals(expectedElement, actualElement, equalityTesters)) {
 									found = true;
 									matches[actualIndex].push(expectedIndex);
 								}
@@ -138,7 +144,7 @@ beforeEach(function () {
 					}
 					result.pass = pass;
 					var toOrNotTo = (result.pass ? "not to" : "to");
-					result.message = "Expected " + jasmine.pp(actual) + " " + toOrNotTo + " only contain all of " + jasmine.pp(expected);
+					result.message = "Expected " + prettyPrint(actual) + " " + toOrNotTo + " only contain all of " + prettyPrint(expected);
 					return result;
 				}
 			};
